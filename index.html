@@ -12,17 +12,55 @@
 </head>
 <body>
 
-    <header class="col-8"></header>
-    <aside class="sidebar-left col-2"></aside>
-    <aside class="sidebar-right col-2"></aside>
+    <header class="col-10"></header>
+    <aside class="sidebar-left col-1"></aside>
+    <aside class="sidebar-right col-1"></aside>
 
 
     
-    <div id="app" class="col-6">
-        <aside class="col-3 sidebar-chat">
+    <div id="app" class="col-8">
+        <aside class="col-4 sidebar-chat">
+            <div class="first-line">
+               <div class="left-side">
+                    <div class="img-container">
+                        <img src="img/avatar_4.jpg" alt="">
+                    </div>
+                    <span>Nome Utente</span>
+               </div>
+               <div class="right-side">
+                    <i class="fas fa-circle-notch icon-grey"></i>
+                    <i class="fas fa-comment-alt icon-grey"></i>
+                    <i class="fas fa-ellipsis-v icon-grey"></i>
+               </div>
+            </div>
+            <div class="second-line">
+                <div class="img-container bell-container">
+                    <i class="fas fa-bell-slash"></i>
+                </div>
+                <div class="notifiche-container">
+                    <span>Ricevi notifiche di nuovi messaggi</span>
+                    <a href="#/">Attiva notifiche desktop</a>
+                </div>
+            </div>
 
+            <input type="text" placeholder="&#xF002; Cerca o inizia una nuova chat" class="input-chat"/>
+
+            <div class="chats-container">
+                <div class="grey-line" :class="i % 2 !== 0 ? 'white-line' : ''" v-for="(item,i) in contacts">
+                    <div class="img-container">
+                        <img :src="item.avatar" alt="">
+                    </div>
+                    <span class="chat-name">{{item.name}}</span>
+                </div>
+            </div>
+            
         </aside>
-        <main class="col-9">
+        <main class="col-8">
+            
+            <div class="header-message">
+                
+            </div>
+
 
         </main>
     </div>
