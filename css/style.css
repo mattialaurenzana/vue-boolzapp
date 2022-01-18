@@ -1,0 +1,40 @@
+header{
+    height: 25vh;
+    background-color: rgb(15, 155, 78);
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.sidebar-left{
+    float: left;
+    height: 100vh;
+    background-color: grey;
+    z-index: 1;
+}
+
+.sidebar-right{
+    float: right;
+    height: 100vh;
+    background-color: grey;
+    z-index: 1;
+}
+
+#app{
+    height: 90vh;
+    border: 1px solid black;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    display: flex;
+}
+
+.sidebar-chat{
+    background-color: crimson;
+    height: 100%;
+}
+
+main{
+    height: 100%;
+    background-color: darkturquoise;
+}
