@@ -1,3 +1,7 @@
+.body{
+    background-color: lightgrey;
+}
+
 header{
     height: 25vh;
     background-color: rgb(106, 209, 152);
@@ -21,18 +25,19 @@ header{
 
 #app{
     height: 90vh;
-    border: 1px solid black;
     position: absolute;
     left: 50%;
     transform: translate(-50%,-50%);
     top: 50%;
     display: flex;
+    background-color: white;
 }
 
 .sidebar-chat{
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid lightgrey;
 
 }
 
@@ -134,3 +139,86 @@ main{
     margin-left: 10px;
 }
 
+.header-message{
+    height: 70px;
+    background-color: rgb(238, 231, 231);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.header-message-left{
+    display: flex;
+}
+
+.header-message-right{
+    display: flex;
+}
+
+.informations-chat{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+
+.last-access{
+    color: grey;
+}
+
+.chat{
+    background: url("../img/mine.jpg") repeat;
+    height: 100%;
+    position: relative;
+}
+
+.message{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+.my-message{
+    background-color: rgb(175, 228, 168);
+}
+
+.interlocutor-message{
+    background-color: white;
+}
+
+.message-1{
+    position: absolute;
+    top: 70px;
+    right: 60px;
+}
+
+.message-2{
+    position: absolute;
+    top: 140px;
+    right: 60px;
+}
+
+.message-3{
+    position: absolute;
+    left: 60px;
+    top:200px
+}
+
+.input-area{
+    height: 70px;
+    background-color: rgb(238, 231, 231);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.input-area input{
+    border-radius: 10px;
+    padding: 5px;
+    width: 80%;
+}
