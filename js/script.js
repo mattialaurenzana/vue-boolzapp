@@ -5,6 +5,7 @@ new Vue({
 
 
     currentIndex: 0,
+    currentMessage: "",
     contacts: [
                 {
                     name: 'Michele',
@@ -88,7 +89,28 @@ new Vue({
                 classList.push('interlocutor-message');
             }
             return classList;
+        },
+        addMessage: function(){
+            let newMessage = {
+                    date: '20/03/2020 16:30:00',
+                    text: this.currentMessage,
+                    status: 'sent'
+            }
+            this.contacts[this.currentIndex].messages.push(newMessage);
+            this.currentMessage = "";
+        },
+        automaticResponse: function(){
+            let newMessage = {
+                date: '20/03/2020 16:30:00',
+                text: 'ok',
+                status: 'received'
+            }
+            this.contacts[this.currentIndex].messages.push(newMessage);
+        },
+        delayFunction: function(){
+            setTimeout(this.automaticResponse,1000);
         }
+        
     }
 });
 

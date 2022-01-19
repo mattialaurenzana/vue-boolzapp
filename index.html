@@ -85,7 +85,7 @@
 
             <div class="input-area">
                 <i class="far fa-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="currentMessage" @keyup.enter="addMessage(); delayFunction()">
                 <i class="fas fa-microphone"></i>
             </div>
 
