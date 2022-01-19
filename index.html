@@ -25,7 +25,7 @@
                     <div class="img-container">
                         <img src="img/avatar_4.jpg" alt="">
                     </div>
-                    <span>Nome Utente</span>
+                    <span>Mattia Laurenzana</span>
                </div>
                <div class="right-side">
                     <i class="fas fa-circle-notch icon-grey"></i>
@@ -43,10 +43,10 @@
                 </div>
             </div>
 
-            <input type="text" placeholder="&#xF002; Cerca o inizia una nuova chat" class="input-chat"/>
+            <input type="text" placeholder="&#xf002; Cerca o inizia una nuova chat" class="input-chat"/>
 
             <div class="chats-container">
-                <div class="grey-line" :class="i % 2 !== 0 ? 'white-line' : ''" v-for="(item,i) in contacts">
+                <div v-for="(item,i) in contacts" class="click-contact" :class="i % 2 !== 0 ? 'white-line' : 'grey-line'" @click="selectContact(i)">
                     <div class="img-container">
                         <img :src="item.avatar" alt="">
                     </div>
@@ -60,10 +60,10 @@
             <div class="header-message">
                 <div class="header-message-left">
                     <div class="img-container">
-                        <img src="img/avatar_1.jpg" alt="">
+                        <img :src="contacts[currentIndex].avatar" alt="">
                     </div>
                     <div class="informations-chat">
-                        <span>Michele</span>
+                        <span>{{contacts[currentIndex].name}}</span>
                         <span class="last-access">Ultimo accesso oggi alle 21:00</span>
                     </div>
                 </div>
@@ -75,14 +75,11 @@
             </div>
 
             <div class="chat">
-                <div class="message my-message message-1">
-                    Hai portato a spasso il cane?
-                </div>
-                <div class="message my-message message-2">
-                    Ricordati di dargli da mangiare
-                </div>
-                <div class="message interlocutor-message message-3">
-                    Tutto fatto!
+                <div class="container">
+                    <div v-for="(item,i) in contacts[currentIndex].messages" :class="getClasses(item)">
+                            {{item.text}}
+                    </div>
+                   
                 </div>
             </div>
 

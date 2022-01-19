@@ -169,7 +169,20 @@ main{
 .chat{
     background: url("../img/mine.jpg") repeat;
     height: 100%;
-    position: relative;
+    
+}
+
+
+.chat .container{
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.click-contact{
+    cursor: pointer;
 }
 
 .message{
@@ -184,29 +197,14 @@ main{
 
 .my-message{
     background-color: rgb(175, 228, 168);
+    align-self: flex-end;
 }
 
 .interlocutor-message{
     background-color: white;
+ 
 }
 
-.message-1{
-    position: absolute;
-    top: 70px;
-    right: 60px;
-}
-
-.message-2{
-    position: absolute;
-    top: 140px;
-    right: 60px;
-}
-
-.message-3{
-    position: absolute;
-    left: 60px;
-    top:200px
-}
 
 .input-area{
     height: 70px;
@@ -222,3 +220,4 @@ main{
     padding: 5px;
     width: 80%;
 }
+
