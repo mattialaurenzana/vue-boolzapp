@@ -58,7 +58,10 @@
                         </div>
                         <span class="chat-name">{{item.name}}</span>
                    </div>
-                   
+                   <div v-if="search(item)" class="last-message">
+                       {{item.messages[item.messages.length -1].text}}
+                       <div class="last-date">{{item.messages[item.messages.length -1].date}}</div>  
+                   </div>
                 </div>
             </div>
             

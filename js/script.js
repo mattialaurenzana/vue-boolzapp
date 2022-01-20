@@ -137,7 +137,7 @@ new Vue({
         },
         automaticResponse: function(){
             let newMessage = {
-                date: '20/03/2020 16:30:00',
+                date: this.getDate(),
                 text: 'ok',
                 status: 'received',
                 showModal: false,
