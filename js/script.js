@@ -6,6 +6,7 @@ new Vue({
 
     currentIndex: 0,
     currentMessage: "",
+    currentFilter: "",
     contacts: [
                 {
                     name: 'Michele',
@@ -13,19 +14,22 @@ new Vue({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
+                            date: '10/01/2020 15:45:00',
                             text: 'Hai portato a spasso il cane?',
-                            status: 'sent'
+                            status: 'sent',
+                            showModal: false,
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             text: 'Ricordati di dargli da mangiare',
-                            status: 'sent'
+                            status: 'sent',
+                            showModal: false,
                         },
                         {
                             date: '10/01/2020 16:15:22',
                             text: 'Tutto fatto!',
-                            status: 'received'
+                            status: 'received',
+                            showModal: false,
                         }
                     ],
                 },
@@ -37,17 +41,20 @@ new Vue({
                         {
                             date: '20/03/2020 16:30:00',
                             text: 'Ciao come stai?',
-                            status: 'sent'
+                            status: 'sent',
+                            showModal: false,
                         },
                         {
                             date: '20/03/2020 16:30:55',
                             text: 'Bene grazie! Stasera ci vediamo?',
-                            status: 'received'
+                            status: 'received',
+                            showModal: false,
                         },
                         {
                             date: '20/03/2020 16:35:00',
                             text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                            status: 'sent'
+                            status: 'sent',
+                            showModal: false,
                         }
                     ],
                 },
@@ -59,22 +66,51 @@ new Vue({
                         {
                             date: '20/03/2020 16:30:00',
                             text: 'Ciao come stai?',
-                            status: 'sent'
+                            status: 'sent',
+                            showModal: false,
                         },
                         {
                             date: '20/03/2020 16:30:55',
                             text: 'Bene grazie! Stasera ci vediamo?',
-                            status: 'received'
+                            status: 'received',
+                            showModal: false,
                         },
                         {
                             date: '20/03/2020 16:35:00',
                             text: 'Mi piacerebbe ma devo andare al cinema.',
-                            status: 'sent'
+                            status: 'sent',
+                            showModal: false,
+                        }
+                    ],
+                },
+                {
+                    name: 'Samuel',
+                    avatar: 'img/avatar_7.jpg',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '20/03/2020 16:30:00',
+                            text: 'Stai bene?',
+                            status: 'sent',
+                            showModal: false,
+                        },
+                        {
+                            date: '20/03/2020 16:30:55',
+                            text: 'Sì sto bene!!',
+                            status: 'received',
+                            showModal: false,
+                        },
+                        {
+                            date: '20/03/2020 16:35:00',
+                            text: 'Ci troviamo per le 3 in piazza',
+                            status: 'sent',
+                            showModal: false,
                         }
                     ],
                 },
 
-            ]
+            ],
+            
     },
     methods: {
         selectContact: function(index){
@@ -82,7 +118,6 @@ new Vue({
         },
         getClasses: function(element){
             classList = [];
-            classList.push('message');
             if(element.status === 'sent'){
                 classList.push('my-message');
             }else{
@@ -92,9 +127,10 @@ new Vue({
         },
         addMessage: function(){
             let newMessage = {
-                    date: '20/03/2020 16:30:00',
+                    date: this.getDate(),
                     text: this.currentMessage,
-                    status: 'sent'
+                    status: 'sent',
+                    showModal: false,
             }
             this.contacts[this.currentIndex].messages.push(newMessage);
             this.currentMessage = "";
@@ -103,14 +139,41 @@ new Vue({
             let newMessage = {
                 date: '20/03/2020 16:30:00',
                 text: 'ok',
-                status: 'received'
+                status: 'received',
+                showModal: false,
             }
             this.contacts[this.currentIndex].messages.push(newMessage);
         },
         delayFunction: function(){
             setTimeout(this.automaticResponse,1000);
+        },
+        search : function(item){
+            
+               if(item.name.toLowerCase().includes(this.currentFilter)){
+                   return true;
+               };
+           
+        },
+        contactsRegenerator: function(){
+            if(this.currentFilter.length === 0){
+                this.filteredArray = [...this.contacts];
+            }
+        },
+        getDate: function(){
+           return  dayjs().format('DD/MM/YYYY HH:mm:ss');
+        },
+        setModal: function(item){
+            item.showModal = !item.showModal;
+        },
+        deleteMessage: function(item,i){
+            this.contacts[this.currentIndex].messages.splice(i,1);
         }
         
-    }
+    },
+ 
+   
+   
 });
+
+
 

@@ -110,8 +110,24 @@ main{
 }
 
 .input-chat{
+    border: none;
+    width: 90%;
+}
+
+.input-chat:focus{
+    outline: none;
+}
+
+
+
+.input-search-container{
+    color: lightgrey;
+    text-align: center;
+    border: 1px solid black;
+    height: 30px;
     margin: 10px;
 }
+
 
 ::placeholder{
     content: "ciao"
@@ -126,13 +142,11 @@ main{
 .grey-line{
     background-color: rgb(238, 231, 231);
     padding: 5px;
-    display: flex;
 }
 
 .white-line{
     background-color: white;
     padding: 5px;
-    display: flex;
 }
 
 .chat-name{
@@ -185,25 +199,74 @@ main{
 
 .click-contact{
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
 }
 
 .message{
     border-radius: 10px;
-    font-size: 13px;
-    height: auto;
+    font-size: 16px;
+    word-break: break-all;
+    margin-right: 5px;
+}
+
+.message-container{
+    position: relative;
+    min-width: 100px;
+    min-height: 30px;
     max-width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.message-container .angle-down{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translate(0,-50%);
+    color: grey;
+
+}
+
+.modale{
+    width:100px;
+    height: 60px;
+    background-color: white;
+    position: absolute;
+    top: 35px;
+    right: 3px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-text{
+    font-size: 13px;
+}
+
+.modal-text:hover{
+    cursor: pointer;
+}
+
+
+.message-date{
+    position: absolute;
+    bottom: 0;
+    right: 3px; 
+    color: grey;
+    font-size: 7px;
 }
 
 .my-message{
     background-color: rgb(175, 228, 168);
     align-self: flex-end;
-    padding: 15px;
 }
 
 .interlocutor-message{
     background-color: white;
     align-self: flex-start;
-    padding: 15px;
  
 }
 
@@ -222,4 +285,5 @@ main{
     padding: 5px;
     width: 80%;
 }
+
 
